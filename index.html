@@ -41,25 +41,30 @@
     </div>
 
 <script>
-  // GitHub API üzerinden yazıları otomatik çekme
   const repo = 'ayboratekyeten/Blog-sitesi-genel'; 
   
   fetch(`https://api.github.com/repos/${repo}/contents/yazilar`)
     .then(res => res.json())
     .then(files => {
       const liste = document.getElementById('yazi-listesi');
-      // Önce mevcut listeyi temizleyelim ki çift görünmesin
       liste.innerHTML = ''; 
       
       files.forEach(file => {
         if(file.name.endsWith('.html')) {
-          // Dosya adını güzelleştir (tireleri boşluk yap)
-          const isim = file.name.replace('.html', '').replace(/-/g, ' ');
-          liste.innerHTML += `
-            <div class="post-item">
-                <span class="date">Yeni Yazı</span>
-                <a href="/yazilar/${file.name}" class="post-title">${isim}</a>
-            </div>`;
+          // GitHub'dan dosyanın son güncellenme tarihini çekiyoruz
+          fetch(`https://api.github.com/repos/${repo}/commits?path=yazilar/${file.name}&page=1&per_page=1`)
+            .then(res => res.json())
+            .then(commits => {
+              const tarihRaw = new Date(commits[0].commit.committer.date);
+              const formatliTarih = tarihRaw.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+              
+              const isim = file.name.replace('.html', '').replace(/-/g, ' ');
+              liste.innerHTML += `
+                <div class="post-item">
+                    <span class="date">${formatliTarih}</span>
+                    <a href="/yazilar/${file.name}" class="post-title">${isim}</a>
+                </div>`;
+            });
         }
       });
     });
