@@ -39,7 +39,6 @@
         <div class="post-list">
 <div id="yazi-listesi">
     </div>
-
 <script>
   const repo = 'ayboratekyeten/Blog-sitesi-genel'; 
   
@@ -47,31 +46,29 @@
     .then(res => res.json())
     .then(files => {
       const liste = document.getElementById('yazi-listesi');
-      if (!liste) return;
       liste.innerHTML = ''; 
 
-      // En yeni tarihli en üstte olsun
+      // En yeni tarihli olanı en üste getir (Z'den A'ya sırala)
       files.sort((a, b) => b.name.localeCompare(a.name));
       
       files.forEach(file => {
         if(file.name.endsWith('.html')) {
-          let tarihGoster = "Eski Yazı";
-          let temizBaslik = file.name.replace('.html', '');
+          let parcalar = file.name.replace('.html', '').split('-');
+          let tarih, baslik;
 
-          // Regex ile tarihi ve başlığı birbirinden kesin ayırıyoruz
-          const match = file.name.match(/^(\d{4})-(\d{2})-(\d{2})-(.*)\.html$/);
-          
-          if (match) {
-             tarihGoster = `${match[3]}.${match[2]}.${match[1]}`; // 22.01.2026 formatı
-             temizBaslik = match[4].replace(/-/g, ' '); // Sadece başlık kalsın
+          // Eğer isim "2026-01-22-baslik" şeklindeyse (ilk 3 parça rakamsa)
+          if (parcalar.length >= 4 && !isNaN(parcalar[0])) {
+             tarih = `${parcalar[2]}.${parcalar[1]}.${parcalar[0]}`; // Gün.Ay.Yıl
+             baslik = parcalar.slice(3).join(' '); // Geri kalan her şey başlıktır
           } else {
-             temizBaslik = temizBaslik.replace(/-/g, ' ');
+             tarih = "Eski Yazı";
+             baslik = parcalar.join(' ');
           }
 
           liste.innerHTML += `
-            <div class="post-item" style="margin-bottom: 15px; display: flex; align-items: center;">
-                <span class="date" style="margin-right: 15px; color: #888; font-size: 0.9em;">${tarihGoster}</span>
-                <a href="/yazilar/${file.name}" class="post-title" style="text-decoration: none; font-weight: bold; text-transform: capitalize; color: #222;">${temizBaslik}</a>
+            <div class="post-item" style="display: flex; gap: 20px; margin-bottom: 12px; align-items: baseline;">
+                <span class="date" style="color: #888; font-family: monospace; min-width: 90px;">${tarih}</span>
+                <a href="/yazilar/${file.name}" class="post-title" style="text-transform: capitalize; font-weight: 600; text-decoration: none; color: #222;">${baslik}</a>
             </div>`;
         }
       });
