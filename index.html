@@ -47,30 +47,31 @@
     .then(res => res.json())
     .then(files => {
       const liste = document.getElementById('yazi-listesi');
+      if (!liste) return;
       liste.innerHTML = ''; 
 
-      // Dosyaları tarihe göre (en yeni en üstte) sırala
+      // En yeni tarihli en üstte olsun
       files.sort((a, b) => b.name.localeCompare(a.name));
       
       files.forEach(file => {
         if(file.name.endsWith('.html')) {
           let tarihGoster = "Eski Yazı";
-          let temizBaslik = file.name.replace('.html', '').replace(/-/g, ' ');
+          let temizBaslik = file.name.replace('.html', '');
 
-          // Eğer dosya adı "2026-01-22-baslik" formatındaysa
-          const tarihMatch = file.name.match(/^(\d{4})-(\d{2})-(\d{2})-(.*)\.html$/);
+          // Regex ile tarihi ve başlığı birbirinden kesin ayırıyoruz
+          const match = file.name.match(/^(\d{4})-(\d{2})-(\d{2})-(.*)\.html$/);
           
-          if (tarihMatch) {
-             // Tarihi ayıkla: Gün Ay Yıl yap
-             tarihGoster = `${tarihMatch[3]} ${tarihMatch[2]} ${tarihMatch[1]}`; 
-             // Başlıktan tarihi ve tireleri temizle
-             temizBaslik = tarihMatch[4].replace(/-/g, ' ');
+          if (match) {
+             tarihGoster = `${match[3]}.${match[2]}.${match[1]}`; // 22.01.2026 formatı
+             temizBaslik = match[4].replace(/-/g, ' '); // Sadece başlık kalsın
+          } else {
+             temizBaslik = temizBaslik.replace(/-/g, ' ');
           }
 
           liste.innerHTML += `
-            <div class="post-item">
-                <span class="date">${tarihGoster}</span>
-                <a href="/yazilar/${file.name}" class="post-title" style="text-transform: capitalize;">${temizBaslik}</a>
+            <div class="post-item" style="margin-bottom: 15px; display: flex; align-items: center;">
+                <span class="date" style="margin-right: 15px; color: #888; font-size: 0.9em;">${tarihGoster}</span>
+                <a href="/yazilar/${file.name}" class="post-title" style="text-decoration: none; font-weight: bold; text-transform: capitalize; color: #222;">${temizBaslik}</a>
             </div>`;
         }
       });
