@@ -48,28 +48,34 @@
     .then(files => {
       const liste = document.getElementById('yazi-listesi');
       liste.innerHTML = ''; 
+
+      // Dosyaları tarihe göre (en yeni en üstte) sırala
+      files.sort((a, b) => b.name.localeCompare(a.name));
       
       files.forEach(file => {
         if(file.name.endsWith('.html')) {
-          // GitHub'dan dosyanın son güncellenme tarihini çekiyoruz
-          fetch(`https://api.github.com/repos/${repo}/commits?path=yazilar/${file.name}&page=1&per_page=1`)
-            .then(res => res.json())
-            .then(commits => {
-              const tarihRaw = new Date(commits[0].commit.committer.date);
-              const formatliTarih = tarihRaw.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
-              
-              const isim = file.name.replace('.html', '').replace(/-/g, ' ');
-              liste.innerHTML += `
-                <div class="post-item">
-                    <span class="date">${formatliTarih}</span>
-                    <a href="/yazilar/${file.name}" class="post-title">${isim}</a>
-                </div>`;
-            });
+          let tarihGoster = "Eski Yazı";
+          let temizBaslik = file.name.replace('.html', '').replace(/-/g, ' ');
+
+          // Eğer dosya adı "2026-01-22-baslik" formatındaysa
+          const tarihMatch = file.name.match(/^(\d{4})-(\d{2})-(\d{2})-(.*)\.html$/);
+          
+          if (tarihMatch) {
+             // Tarihi ayıkla: Gün Ay Yıl yap
+             tarihGoster = `${tarihMatch[3]} ${tarihMatch[2]} ${tarihMatch[1]}`; 
+             // Başlıktan tarihi ve tireleri temizle
+             temizBaslik = tarihMatch[4].replace(/-/g, ' ');
+          }
+
+          liste.innerHTML += `
+            <div class="post-item">
+                <span class="date">${tarihGoster}</span>
+                <a href="/yazilar/${file.name}" class="post-title" style="text-transform: capitalize;">${temizBaslik}</a>
+            </div>`;
         }
       });
     });
 </script>
-
         </div>
     </main>
 
