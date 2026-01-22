@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizim Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Teknoloji, ekonomi ve kültür üzerine üniversiteli bir arkadaş grubunun kolektif blogu.">
+<meta name="author" content="Arkadaş Grubu">
+<meta name="keywords" content="üniversite,ekonomi">
+
+<meta property="og:title" content="Bizim Kolektif Blog">
+<meta property="og:description" content="Düşüncelerimizi paylaştığımız dijital arşivimiz.">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+    <header>
+        <h1 style="margin-bottom: 10px;">BİZİM KOLEKTİF BLOG</h1>
+        <nav>
+            <a href="index.html">ANA SAYFA</a>
+            <a href="yazarlar.html">YAZARLAR</a>
+            <a href=".html">HAKKIMIZDA</a>
+	    <a href="#" onclick="rastgeleGetir(); return false;" title="Rastgele Bir Yazı Oku" style="font-size: 1.2rem;">🎲</a>	
+        </nav>
+        <hr style="margin-top: 20px; border: 0; border-top: 1px solid #000;">
+    </header>
+
+    <main>
+
+	<main>
+        
+        <div class="search-container">
+            <input type="text" id="search-box" onkeyup="yaziAra()" placeholder="Yazı başlığı veya yazar adı ara...">
+        </div>
+
+        <div class="post-list">
+
+<div class="post-item">
+                <span class="date">22 Ocak 2026</span>
+                <a href="yazilar/beynimiz-kuculuyor-mu.html" class="post-title">Beynimiz Küçülüyor Mu???</a>
+                <span class="author">/ Yazan: <a href="#">Aybora Tekyeten</a></span>
+            </div>            
+<div class="post-item">
+                <span class="date">21 Ocak 2026</span>
+                <a href="yazilar/her-seyi-duzeltmeye-kalkismanin-yok-ettigi.html" class="post-title">Her Şeyi Düzeltmeye Kalkışmanın Yok Ettiği</a>
+                <span class="author">/ Yazan: <a href="#">Aybora Tekyeten</a></span>
+            </div>
+<div class="post-item">
+                <span class="date">6 Ocak 2026</span>
+                <a href="yazilar/dusmanim.html" class="post-title">düşmanım</a>
+                <span class="author">/ Yazan: <a href="#">Oğulcan Cingöz</a></span>
+            </div>
+	 <div class="post-item">
+                <span class="date">3 Ocak 2026</span>
+                <a href="yazilar/son-zamanlarda-hayat.html" class="post-title">Son Zamanlarda Hayat</a>
+                <span class="author">/ Yazan: <a href="#">Aybora Tekyeten</a></span>
+            </div>
+
+	    <div class="post-item">
+                <span class="date">12 Aralık 2025</span>
+                <a href="yazilar/soluk-mevsim.html" class="post-title">Soluk Mevsim</a>
+                <span class="author">/ Yazan: <a href="#">Oğulcan Cingöz</a></span>
+            </div>
+
+	    <div class="post-item">
+                <span class="date">5 Aralık 2025</span>
+                <a href="yazilar/girizgah.html" class="post-title">Girizgah</a>
+                <span class="author">/ Yazan: <a href="#">Oğulcan Cingöz</a></span>
+            </div>
+
+           
+	
+
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Bizim Kolektif</p>
+    </footer>
+
+</body>
+<script>
+        function yaziAra() {
+            // 1. Kullanıcının yazdığını al ve küçük harfe çevir (Türkçe uyumlu)
+            var input = document.getElementById('search-box');
+            var filter = input.value.toLocaleLowerCase('tr');
+            
+            // 2. Yazı listesini ve içindeki kutuları bul
+            var list = document.getElementsByClassName('post-list')[0];
+            var posts = list.getElementsByClassName('post-item');
+
+            // 3. Her bir yazıyı tek tek kontrol et
+            for (var i = 0; i < posts.length; i++) {
+                
+                // Yazının başlığını ve yazarını al
+                var titleLink = posts[i].getElementsByClassName('post-title')[0];
+                var authorSpan = posts[i].getElementsByClassName('author')[0];
+                
+                // İçeriklerini metne dök
+                var titleText = titleLink.textContent || titleLink.innerText;
+                var authorText = authorSpan.textContent || authorSpan.innerText;
+
+                // 4. Eşleşme var mı? (Başlıkta VEYA Yazar isminde)
+                if (titleText.toLocaleLowerCase('tr').indexOf(filter) > -1 || 
+                    authorText.toLocaleLowerCase('tr').indexOf(filter) > -1) {
+                    
+                    posts[i].style.display = ""; // Varsa göster
+                } else {
+                    posts[i].style.display = "none"; // Yoksa gizle
+                }
+            }
+        }
+    </script>
+
+</html>
+<script>
+        function rastgeleGetir() {
+            // 1. YAZI HAVUZU (Yeni yazı yazdıkça buraya eklemelisin!)
+            var yazilar = [
+		"yazilar/beynimiz-kuculuyor-mu.html",
+		"yazilar/her-seyi-duzeltmeye-kalkismanin-yok-ettigi.html",
+		"yazilar/dusmanim.html",                
+		"yazilar/son-zamanlarda-hayat.html",
+		"yazilar/girizgah.html",
+		"yazilar/soluk-mevsim.html",
+                // Yeni yazın olduğunda: ,"yazilar/yeni-dosya.html" şeklinde alta ekle
+            ];
+
+            // 2. Rastgele bir sayı seç (0 ile liste uzunluğu arasında)
+            var sansliSayi = Math.floor(Math.random() * yazilar.length);
+            var secilenYazi = yazilar[sansliSayi];
+
+            // 3. Dosya Yolunu Ayarla (Önemli!)
+            // Eğer şu an bir alt klasördeysek (örn: bir yazının içindeysek),
+            // linkin başına "../" eklememiz lazım ki ana klasöre çıkıp yolu bulsun.
+            
+            // Basit kontrol: Şu anki adresin içinde "yazilar/" veya "yazarlar/" geçiyor mu?
+            if (window.location.href.indexOf("/yazilar/") > -1 || window.location.href.indexOf("/yazarlar/") > -1) {
+                window.location.href = "../" + secilenYazi;
+            } else {
+                // Ana sayfadaysak direkt git
+                window.location.href = secilenYazi;
+            }
+        }
+    </script>

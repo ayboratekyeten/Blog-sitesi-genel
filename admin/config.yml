@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main # Eğer GitHub'daki ana dalın adı 'master' ise burayı değiştir
+
+media_folder: "resimler" # Resimlerin yükleneceği klasör
+public_folder: "/resimler" # Sitede resimlerin görüneceği yol
+
+collections:
+  - name: "yazilar" # Klasör adı
+    label: "Yazılar"
+    folder: "yazilar" # Yazıların kaydedileceği klasör
+    create: true # Yeni yazı oluşturmaya izin ver
+    slug: "{{slug}}" # Dosya adı ne olsun? (başlık-gibi)
+    extension: "html" # Dosyalar HTML olarak kaydedilsin
+    format: "html-frontmatter" # HTML formatında içerik
+    fields: # Yazı ekleme ekranındaki kutucuklar
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yazar Adı", name: "author", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+      - {label: "Kapak Resmi", name: "thumbnail", widget: "image", required: false}
+      - {label: "İçerik", name: "body", widget: "markdown"}

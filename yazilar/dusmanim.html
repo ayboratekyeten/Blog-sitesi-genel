@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAZI BAŞLIĞI BURAYA</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: center; margin-bottom: 20px;">
+            <a href="../index.html" style="text-decoration:none; color:#000;">BİZİM KOLEKTİF BLOG</a>
+        </h3>
+        <nav style="text-align: center; font-size: 0.9rem;">
+            <a href="../index.html" style="margin: 0 10px; color:#555;">ANA SAYFA</a>
+            <a href="../yazarlar.html" style="margin: 0 10px; color:#555;">YAZARLAR</a>
+            <a href="../hakkimizda.html" style="margin: 0 10px; color:#555;">HAKKIMIZDA</a>
+	    <a href="#" onclick="rastgeleGetir(); return false;" title="Rastgele Bir Yazı Oku" style="font-size: 1.2rem;">🎲</a>
+        </nav>
+        <hr style="margin-top: 20px; border: 0; border-top: 1px solid #ddd;">
+    </header>
+
+    <main>
+        <article>
+            <h1 style="font-size: 2rem; margin-bottom: 10px;">düşmanım</h1>
+            
+            <p style="color:#666; font-size:0.9rem; margin-bottom: 30px;">
+                6 Ocak 2026 — Yazan: <a href="../yazarlar/ogulcan.html">Oğulcan Cingöz</a>
+            </p>
+
+            <p>Yazmayalı epey olmuş, karalamak istiyorum buralarda. Fakat aynı zamanda beni yansıtmasını istiyorum yazdıklarımın. Sorun da biraz buradan kaynaklı. Şu aralar kendimi anlayamıyorum. Komik, ne zaman kendimi anlayabildim ki? Anlamak bir yana, anlamasam da ne zaman kabul ettim? Kendimle alakalı olan aykırı fikirleri öylesine inşa etmişim ki zihnimin kıvrımlarına, söküp atabilmek için bir düzine cerrah gerek. Onlar olmadan kendimle olan kavgamı sonlandırabilecek miyim suçlayarak, kaçarak, görmezden gelerek... Kin tutarak kalabilir miyim uzunca bir süre daha? Ne yazık ki bu gerçekliği yaratan ana aktör, kabul etmekten korksam da inkar etmek istesem de benim. Ben, bana dair olan sorunların ana kaynağıyım. Algıladıklarım kadar ve algılayacaklarımdan ibaretim. Demek ki elimde huzursuzluktan fazlasını tutamamışım. Daha fazlasını görememişim bu dünyaya dair.
+</p>
+
+            <h3</h3>
+            <p>Yaşayabilmek için yıkabilmekle başlamam gerek, fakat ben elimdeki silahı kullanmayı bilmiyorum. Elimde bir silah var mı ki? Varsa bile bunu kullanmayı kabul etmeyecek kadar kibirliyim. Ben, kendi gururumun esiriyim. Esaret altında olan ruhuma deva bulabilmek için yürüdüğüm yollarda ne aradığımı bilmeden avare avare gezen bir yolcuyum. Bu yolculuğun sonu nereye çıkar bilinmez, bilsem de anlamayacağım bir noktaya varacağımdan eminim. Gözlerimi kör eden gururumu yıkacak kadar güçlü değilim.</p>
+	    <p> Galiba hayata karşı en büyük sitemlerimden biri de bu kavramlarla birlikte geliyor. Anlayamamak ve belirsizliklerle bir başına kalmak. Sizi bilemem ama ben, materyal olan problemleri bir şekilde aşabilsem de içsel arayış noktasında asla tatminkar olan bir noktaya ulaştıramıyorum fikirlerimi. Daima kendi içinde bir döngü sarmalı oluşturan, aynı döngüleri büyütüp kendi benliğime zarar veren haykırışların etrafındayım. Çok fazla bilinmeyenin bulunduğu bir denklemin çözüm kümesiyim. Kayıbım.</p>
+
+            <div class="share-section">
+
+                <p class="share-title">Bu yazıyı paylaş:</p>
+
+                <div class="share-buttons">
+
+                    <a id="wa-share" class="share-btn" target="_blank">WhatsApp</a>
+
+                    
+
+                    <a id="tw-share" class="share-btn" target="_blank">X (Twitter)</a>
+
+                    
+
+                    <button id="copy-link" class="share-btn" onclick="linkiKopyala()">Linki Kopyala 🔗</button>
+
+                </div>
+
+            </div>
+
+
+
+            <script>
+
+                // Sayfa yüklendiğinde çalışır
+
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    // Şu anki sayfanın adresini ve başlığını al
+
+                    var url = encodeURIComponent(window.location.href);
+
+                    var title = encodeURIComponent(document.title);
+
+
+
+                    // WhatsApp Linkini Ayarla
+
+                    document.getElementById("wa-share").href = "https://api.whatsapp.com/send?text=" + title + " - " + url;
+
+
+
+                    // Twitter Linkini Ayarla
+
+                    document.getElementById("tw-share").href = "https://twitter.com/intent/tweet?text=" + title + "&url=" + url;
+
+                });
+
+
+
+                // Link Kopyalama Fonksiyonu
+
+                function linkiKopyala() {
+
+                    navigator.clipboard.writeText(window.location.href);
+
+                    alert("Link kopyalandı! Arkadaşlarına gönderebilirsin.");
+
+                }
+
+            </script>
+
+          
+
+
+
+	</article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Bizim Kolektif</p>
+    </footer>
+
+</body>
+</html>

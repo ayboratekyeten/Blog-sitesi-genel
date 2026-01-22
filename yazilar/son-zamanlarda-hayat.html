@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Son Zamanlarda Hayat</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: center; margin-bottom: 20px;">
+            <a href="../index.html" style="text-decoration:none; color:#000;">BİZİM KOLEKTİF BLOG</a>
+        </h3>
+        <nav style="text-align: center; font-size: 0.9rem;">
+            <a href="../index.html" style="margin: 0 10px; color:#555;">ANA SAYFA</a>
+            <a href="../yazarlar.html" style="margin: 0 10px; color:#555;">YAZARLAR</a>
+            <a href="../hakkimizda.html" style="margin: 0 10px; color:#555;">HAKKIMIZDA</a>
+	    <a href="#" onclick="rastgeleGetir(); return false;" title="Rastgele Bir Yazı Oku" style="font-size: 1.2rem;">🎲</a>
+        </nav>
+        <hr style="margin-top: 20px; border: 0; border-top: 1px solid #ddd;">
+    </header>
+
+    <main>
+        <article>
+            <h1 style="font-size: 2rem; margin-bottom: 10px;">Son Zamanlarda Hayat</h1>
+            
+            <p style="color:#666; font-size:0.9rem; margin-bottom: 30px;">
+                3 Ocak 2026 — Yazan: <a href="../yazarlar/aybora.html">Aybora Tekyeten</a>
+            </p>
+		<img src="../resimler/kediler.jpeg" alt="" class="post-img">
+
+<p class="img-caption"></p>		
+
+            <p>Ne zamandır yazmak istiyorum ama yazmıyorum inatla bunu yapmaktan kaçtım neden anlamadım ama, sonunda burdayım. Son zamanlarda her şeyi ertelemeye başladım zaten böyle bir hastalığa yakalandım. Aslında kafamdan geçirdiğim düşünceler ya da başkalarıyla konuşurken kurduğum cümlelerin bazılarını dönüp hatırlamak istiyorum fakat konuşarak bunu yapabilmek mümkün değil o yüzden yazayım o halde dedim. Yazarak anlatmayı deneyeceğim bazı şeyleri artık kısacası. Konuşmak çok kolay halbuki bir sürü şeyi akıtabiliyorsun anlık olarak ama yazarken öyle olmuyor. Sanıyorum ki insan bir şeyleri anlatırken karşısında biri var ve onunla konuşuyor oluyor ama yazarken sadece sen varsın yani bir noktada aslında kendinle konuşmuyor musun. Işte bu yüzden sanırım yazmak çok zor geliyor bana çünkü sürekli bir kaçma halindeyim ve kendimle de başbaşa kalmaktan belki kendimi sorgulamaktan o kadar kaçıyorum ki işte tam bu yüzden o kadar zamandır yazacağım diyip sürekli yazmamak için bir sürü bahane buldum. Aslında şu anda da kafam güzel yani bunları yazıyorum ama hiç düşünmüyorum ellerim gidiyor sadece. Hala daha kaçıyorum kendimden anlaşılan çünkü kafan güzelken kendini sorgulamak, kendinle yüzleşebilmek bir nebze de olsa daha kolay sanki. Sonuçta yeni bir şeye başlıyorum nasıl başlarsa başlasın istiyorum bu yüzden çok da şikayetçiyim diyemem. Tam olarak kafamdan nasıl kuruyorsam cümleleri, o şekilde yazıyorum dönüp de asla nasıl olmuş diye okumayacağım sanırım çünkü bunun sonucunu öğrenmek için yazdıklarımı okuyacak ve kendimle yüzleşeceğim sanırım. En azından öyle hissetiriyor. Özetleyecek olursak bir blog kurdum bazı arkadaşlar gelip gidecek bir şeyler yazacaklar eğer yazarlarsa, burda böyle takılacağız işte. Bu siteyi de ne kadar etrafa duyurmak isteyeceğim orası meçhul. Belki de anonim takılmak daha iyi olacaktı.</p>
+
+          
+            
+
+            <div class="share-section">
+
+                <p class="share-title">Bu yazıyı paylaş:</p>
+
+                <div class="share-buttons">
+
+                    <a id="wa-share" class="share-btn" target="_blank">WhatsApp</a>
+
+                    
+
+                    <a id="tw-share" class="share-btn" target="_blank">X (Twitter)</a>
+
+                    
+
+                    <button id="copy-link" class="share-btn" onclick="linkiKopyala()">Linki Kopyala 🔗</button>
+
+                </div>
+
+            </div>
+
+
+
+            <script>
+
+                // Sayfa yüklendiğinde çalışır
+
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    // Şu anki sayfanın adresini ve başlığını al
+
+                    var url = encodeURIComponent(window.location.href);
+
+                    var title = encodeURIComponent(document.title);
+
+
+
+                    // WhatsApp Linkini Ayarla
+
+                    document.getElementById("wa-share").href = "https://api.whatsapp.com/send?text=" + title + " - " + url;
+
+
+
+                    // Twitter Linkini Ayarla
+
+                    document.getElementById("tw-share").href = "https://twitter.com/intent/tweet?text=" + title + "&url=" + url;
+
+                });
+
+
+
+                // Link Kopyalama Fonksiyonu
+
+                function linkiKopyala() {
+
+                    navigator.clipboard.writeText(window.location.href);
+
+                    alert("Link kopyalandı! Arkadaşlarına gönderebilirsin.");
+
+                }
+
+            </script>
+
+          
+
+
+
+	</article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Bizim Kolektif</p>
+    </footer>
+
+</body>
+</html>

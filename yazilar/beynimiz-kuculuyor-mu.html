@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beynimiz Küçülüyor Mu???</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: center; margin-bottom: 20px;">
+            <a href="../index.html" style="text-decoration:none; color:#000;">BİZİM KOLEKTİF BLOG</a>
+        </h3>
+        <nav style="text-align: center; font-size: 0.9rem;">
+            <a href="../index.html" style="margin: 0 10px; color:#555;">ANA SAYFA</a>
+            <a href="../yazarlar.html" style="margin: 0 10px; color:#555;">YAZARLAR</a>
+            <a href="../hakkimizda.html" style="margin: 0 10px; color:#555;">HAKKIMIZDA</a>
+	    <a href="#" onclick="rastgeleGetir(); return false;" title="Rastgele Bir Yazı Oku" style="font-size: 1.2rem;">🎲</a>
+        </nav>
+        <hr style="margin-top: 20px; border: 0; border-top: 1px solid #ddd;">
+    </header>
+
+    <main>
+        <article>
+            <h1 style="font-size: 2rem; margin-bottom: 10px;">Beynimiz Küçülüyor Mu???</h1>
+            
+            <p style="color:#666; font-size:0.9rem; margin-bottom: 30px;">
+                22 Ocak 2026 — Yazan: <a href="../yazarlar/aybora.html">Aybora Tekyeten</a>
+            </p>
+		<img src="../resimler/evrimadam.jpg" alt="" class="post-img">
+
+<p class="img-caption"></p>
+
+            <p>Şu aralar geceleri her şeyi bırakıp sadece kitap okuyorum. Bir süre kitap okuduktan sonra ise içimde bir şeyler yazma isteği oluşuyor ve yazmak istiyorum, dün de aynısını yaptım ama dün içimde bir şeyleri anlatmak isteği vardı bunu üzerine yazdım fakat şu anda yazarak anlatmak istediğim hiçbir düşüncem yok sadece yazmak istiyorum. Adana’dayım(nasıl yazılması gerektiğini geminiye sordum allah beni kahretsin) ara tatildeyiz bütün gün odamda oturuyorum ev yemeği yiyorum ve kendi istediğim şeyler haricinde hiçbir şey için zaman ayırmam gerekmiyor kısacası keyfim yerinde. Bütün bunların haricinde kendimden memnun değilim (yeni bir durum değil) istediğim şeyler için bir türlü gereken eforu sarf etmiyorum, çoğunlukla boş oturuyorum kendim için belirlediğim bari şunları yap dediğim işleri bile yapmıyorum. En azından 2 gündür kitap okuyorum ve geceleri yazıyorum diye bunu bir artı olarak görüyorum ve sürdürmeye çalışıyorum. Lisede bunu çok iyi yapıyordum aslında hikayeler yazıyordum o dönem ve hocalarım da çok beğeniyordu fakat ne yazık ki bu işi de bıraktım hızlıca bok varmış gibi. Düşünüyorum ne kadar çok okuyordum o zamanlar, bütün gün okulda çantamda sadece okuyacağım iki kitap ve bimden aldığım star wars yastığımla dersleri dinlemeyip kitap okuyordum sıkılınca da uyuyordum eve dönünce de okumaya devam ediyordum bir şeyler yazıyordum sonrasında, şimdi bunların dörtte birini yapmaya kalksam bir hafta kendime gelemem sanıyorum ki. Biraz olsun bu durumun üstesinden gelebilmek adına telefondan mümkün olduğunca uzaklaşmaya çalışıyorum (bu yaşlarda özellikle de bir ilişkiniz varsa pek mümkün olmuyor) kitap okuyorum yazıyorum o zamandakine benzer bir atmosfer yaratmaya çalışıyorum çünkü artık bazı şeyleri değiştirmek istiyorum kendimle alakalı ve bir yerden başlamak gerekiyor. Bahsettiğim değişim sürecinde yazı yazmanın ve kitap okumanın tam olarak bana nasıl bir fayda sağlayacağından emin değilim ama bu düşünce şekliyle de bir yere varamayacağımı hissediyorum. Geçtiğimiz günlerde bir merakla başlayıp bıraktığım “Çalınan Dikkat” isimli kitabın etkisi olmuş olabilir çünkü kitabın ana mevzu bu, yazarımız bu konu üzerine detaylı bir kitap yazmak istiyor ve telefon bilgisayar vs. eşyalarını evde bırakıp kendini sakin bir sahil kasabasında bir odaya kapatıyor. Tabii benimkisi bu kadar çılgın bir hareket değil bugün bile en az 2 saat reels izlemişimdir ne büyük rezillik değil mi hiçbir sikime benzemeyen videoları izlemek için iki saatimi vermişim tam olarak zihin otuzbiri. Artık net olarak anlıyorum ki bayağı bayağı sıkılmam gerekiyor biraz da olsa çünkü kendime artık sıkılma şansı bile vermiyorum üç dakikalık bir boşlukta bile elim telefona gidiyor ve anlamsızca bir şeylere bakıyorum, buna artık bir son vermek lazım diyerekten bu aralar böyle takılıyorum işte. </p>
+
+
+            <div class="share-section">
+
+                <p class="share-title">Bu yazıyı paylaş:</p>
+
+                <div class="share-buttons">
+
+                    <a id="wa-share" class="share-btn" target="_blank">WhatsApp</a>
+
+                    
+
+                    <a id="tw-share" class="share-btn" target="_blank">X (Twitter)</a>
+
+                    
+
+                    <button id="copy-link" class="share-btn" onclick="linkiKopyala()">Linki Kopyala 🔗</button>
+
+                </div>
+
+            </div>
+
+
+
+            <script>
+
+                // Sayfa yüklendiğinde çalışır
+
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    // Şu anki sayfanın adresini ve başlığını al
+
+                    var url = encodeURIComponent(window.location.href);
+
+                    var title = encodeURIComponent(document.title);
+
+
+
+                    // WhatsApp Linkini Ayarla
+
+                    document.getElementById("wa-share").href = "https://api.whatsapp.com/send?text=" + title + " - " + url;
+
+
+
+                    // Twitter Linkini Ayarla
+
+                    document.getElementById("tw-share").href = "https://twitter.com/intent/tweet?text=" + title + "&url=" + url;
+
+                });
+
+
+
+                // Link Kopyalama Fonksiyonu
+
+                function linkiKopyala() {
+
+                    navigator.clipboard.writeText(window.location.href);
+
+                    alert("Link kopyalandı! Arkadaşlarına gönderebilirsin.");
+
+                }
+
+            </script>
+
+          
+
+
+
+	</article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Bizim Kolektif</p>
+    </footer>
+
+</body>
+</html>

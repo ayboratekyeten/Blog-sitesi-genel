@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girizgah</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h3 style="text-align: center; margin-bottom: 20px;">
+            <a href="../index.html" style="text-decoration:none; color:#000;">BİZİM KOLEKTİF BLOG</a>
+        </h3>
+        <nav style="text-align: center; font-size: 0.9rem;">
+            <a href="../index.html" style="margin: 0 10px; color:#555;">ANA SAYFA</a>
+            <a href="../yazarlar.html" style="margin: 0 10px; color:#555;">YAZARLAR</a>
+            <a href="../hakkimizda.html" style="margin: 0 10px; color:#555;">HAKKIMIZDA</a>
+	    <a href="#" onclick="rastgeleGetir(); return false;" title="Rastgele Bir Yazı Oku" style="font-size: 1.2rem;">🎲</a>
+        </nav>
+        <hr style="margin-top: 20px; border: 0; border-top: 1px solid #ddd;">
+    </header>
+
+    <main>
+        <article>
+            <h1 style="font-size: 2rem; margin-bottom: 10px;">Girizgah</h1>
+            
+            <p style="color:#666; font-size:0.9rem; margin-bottom: 30px;">
+                5 Aralık 2025 — Yazan: <a href="../yazarlar/ogulcan.html">Oğulcan Cingöz</a>
+            </p>
+
+            <p>Ve nihai gün, yazdıklarımın yayımlanacağını biliyor olmanın verdiği gerginliği bı kenara koymam gerek. ama bu gerginlik beni yazmaktan alıkoymaktan ziyade, mevcut halimi kelimelere dökme noktasında sıkıntılar yaşatacak. açılacağım tabi zaman geçtikçe, sizler de anlayacaksınız neler döndüğünü kafamın içinde. zaman zaman anlamayacaksınız gerçi. çünkü her şeyi anlaşılmak istendiği için yazmaz insan, bazen kusmak ister. kendini anlatmak; ama anlattığını sadece kendi anlamak, yazdıklarını okutmak; ama hepsini kendine saklamak gibi birbirinden tezat hislerin içinde boğuşur durur uzun bir süre. işte tam olarak böyle bir durum içinde yazdığım bir yazıma denk gelirsen, metnin başına dönüp "ulan ne anlatmak istiyor bu eleman" gibi bir düşünceye kapıldığınızı fark ederseniz, muhtemelen yazdıklarımı sizler için değil; kendim için hazirlamışımdır, buralardan geçtiğimi kanıtlar nitelikte olan bir imzadır o. yine de yegane temennim bu blogda anlatacağım şeylerin olabildiğince anlaşılır olması, anlaşılmıyor olma dürtüsünü oluşturan ruh hali benim açımdan sakıncalı. zar zor ite kaka ayakta kalmayı başarmış bir ruhun acılarını çileden çıkarmaya gerek yok.</p>
+
+            
+            <p>Her neyse, bu girişi yapıp bitirerek nelere dair yazacağım konusunda sizleri biraz bilgilendirmiş oldum. siyah tonlardan hoşlanan, siyah tonlardan oluşan, karamsarlikla yakın dostluk kurmuş bir adamım ben. başladığım günden rahatsız olmak, kafamın içinde huzursuzluklar yaratmak ve bu yarattiklarimla sohbet etmek benim işim.  bunu hemen her fırsatta yaparak sürekli keyfinizi kacirmayacagim tabi, ara sıra sokakta görüp sevdiğim kedilerden de bahsedebilirim, neden olmasın? onların da hikayelerine bı anlatıcı lazımdır belki, bunu benden daha iyi yapacak çok da fazla kişi yoktur hem.</p>
+
+            <div class="share-section">
+
+                <p class="share-title">Bu yazıyı paylaş:</p>
+
+                <div class="share-buttons">
+
+                    <a id="wa-share" class="share-btn" target="_blank">WhatsApp</a>
+
+                    
+
+                    <a id="tw-share" class="share-btn" target="_blank">X (Twitter)</a>
+
+                    
+
+                    <button id="copy-link" class="share-btn" onclick="linkiKopyala()">Linki Kopyala 🔗</button>
+
+                </div>
+
+            </div>
+
+
+
+            <script>
+
+                // Sayfa yüklendiğinde çalışır
+
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    // Şu anki sayfanın adresini ve başlığını al
+
+                    var url = encodeURIComponent(window.location.href);
+
+                    var title = encodeURIComponent(document.title);
+
+
+
+                    // WhatsApp Linkini Ayarla
+
+                    document.getElementById("wa-share").href = "https://api.whatsapp.com/send?text=" + title + " - " + url;
+
+
+
+                    // Twitter Linkini Ayarla
+
+                    document.getElementById("tw-share").href = "https://twitter.com/intent/tweet?text=" + title + "&url=" + url;
+
+                });
+
+
+
+                // Link Kopyalama Fonksiyonu
+
+                function linkiKopyala() {
+
+                    navigator.clipboard.writeText(window.location.href);
+
+                    alert("Link kopyalandı! Arkadaşlarına gönderebilirsin.");
+
+                }
+
+            </script>
+
+          
+
+
+
+	</article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Bizim Kolektif</p>
+    </footer>
+
+</body>
+</html>
