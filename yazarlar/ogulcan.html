@@ -35,20 +35,48 @@
 
         <h3>Yazarın Yazıları</h3>
         
-        <div class="post-list" style="border-top: none;">
-            
-	<div class="post-item">
-                <span class="date">6 Ocak 2026</span>
-                <a href="../yazilar/dusmanim.html" class="post-title">düşmanım</a>
-            </div>
-	    <div class="post-item">
-                <span class="date">12 Aralık 2025</span>
-                <a href="../yazilar/soluk-mevsim.html" class="post-title">Soluk Mevsim</a>
-            </div>
-            <div class="post-item">
-                <span class="date">5 Aralık 2025</span>
-                <a href="../yazilar/girizgah.html" class="post-title">Girizgah</a>
-            </div>
+<div id="yazar-yazilari">
+    </div>
+
+<script>
+  const repo = 'ayboratekyeten/Blog-sitesi-genel';
+  const yazarAdi = 'Oğulcan Cingöz'; 
+
+  fetch(`https://api.github.com/repos/${repo}/contents/yazilar`)
+    .then(res => res.json())
+    .then(files => {
+      const liste = document.getElementById('yazar-yazilari');
+      liste.innerHTML = '';
+
+      files.sort((a, b) => b.name.localeCompare(a.name));
+
+      files.forEach(file => {
+        if(file.name.endsWith('.html')) {
+          fetch(file.download_url)
+            .then(res => res.text())
+            .then(content => {
+              // Dosya içeriğinde yazarı kontrol et
+              if (content.includes(`author: ${yazarAdi}`) || content.includes(`Yazar: ${yazarAdi}`)) {
+                let parcalar = file.name.replace('.html', '').split('-');
+                let tarih = "Eski Yazı";
+                let baslik = parcalar.join(' ');
+
+                if (parcalar.length >= 4 && !isNaN(parcalar[0])) {
+                  tarih = `${parcalar[2]}.${parcalar[1]}.${parcalar[0]}`;
+                  baslik = parcalar.slice(3).join(' ');
+                }
+
+                liste.innerHTML += `
+                  <div class="post-item" style="margin-bottom: 10px;">
+                      <span class="date" style="color: #888; margin-right: 10px;">${tarih}</span>
+                      <a href="/yazilar/${file.name}" style="font-weight: bold; text-transform: capitalize; text-decoration: none; color: #222;">${baslik}</a>
+                  </div>`;
+              }
+            });
+        }
+      });
+    });
+</script>
 
         </div>
 
