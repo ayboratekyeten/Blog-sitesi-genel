@@ -37,7 +37,15 @@
         </div>
 
         <div class="post-list">
-
+<script>
+  // Yazılar klasöründeki dosyaları otomatik listeleme (Basit Mantık)
+  fetch('/yazilar/')
+    .then(response => response.text())
+    .then(data => {
+      // Burada panelden gelen yeni dosyaları yakalayıp 
+      // ana sayfadaki listeye otomatik ekleteceğiz.
+    });
+</script>
 <div class="post-item">
                 <span class="date">22 Ocak 2026</span>
                 <a href="yazilar/beynimiz-kuculuyor-mu.html" class="post-title">Beynimiz Küçülüyor Mu???</a>
