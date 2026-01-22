@@ -37,13 +37,31 @@
         </div>
 
         <div class="post-list">
+<div id="yazi-listesi">
+    </div>
+
 <script>
-  // Yazılar klasöründeki dosyaları otomatik listeleme (Basit Mantık)
-  fetch('/yazilar/')
-    .then(response => response.text())
-    .then(data => {
-      // Burada panelden gelen yeni dosyaları yakalayıp 
-      // ana sayfadaki listeye otomatik ekleteceğiz.
+  // GitHub API üzerinden yazıları otomatik çekme
+  const repo = 'ayboratekyeten/Blog-sitesi-genel'; 
+  
+  fetch(`https://api.github.com/repos/${repo}/contents/yazilar`)
+    .then(res => res.json())
+    .then(files => {
+      const liste = document.getElementById('yazi-listesi');
+      // Önce mevcut listeyi temizleyelim ki çift görünmesin
+      liste.innerHTML = ''; 
+      
+      files.forEach(file => {
+        if(file.name.endsWith('.html')) {
+          // Dosya adını güzelleştir (tireleri boşluk yap)
+          const isim = file.name.replace('.html', '').replace(/-/g, ' ');
+          liste.innerHTML += `
+            <div class="post-item">
+                <span class="date">Yeni Yazı</span>
+                <a href="/yazilar/${file.name}" class="post-title">${isim}</a>
+            </div>`;
+        }
+      });
     });
 </script>
 <div class="post-item">
