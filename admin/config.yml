@@ -10,7 +10,7 @@ collections:
     label: "Yazılar"
     folder: "yazilar" # Yazıların kaydedileceği klasör
     create: true # Yeni yazı oluşturmaya izin ver
-    slug: "{{slug}}" # Dosya adı ne olsun? (başlık-gibi)
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "html" # Dosyalar HTML olarak kaydedilsin
     format: "frontmatter" # HTML formatında içerik
     fields: # Yazı ekleme ekranındaki kutucuklar
